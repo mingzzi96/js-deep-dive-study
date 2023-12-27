@@ -1,7 +1,7 @@
 # 📚 모던 자바스크립트 Deep Dive 스터디
 모던 자바스크립트 꾸준히 공부하기 !
 
-[노션 주소](https://zippy-headphones-1a3.notion.site/3-6-d1d836fce6904b25a17078a0d1ea48af?pvs=4)
+[우리 팀 노션 주소](https://zippy-headphones-1a3.notion.site/3-6-d1d836fce6904b25a17078a0d1ea48af?pvs=4)
 
 ## 👉🏻 멤버 소개
 
