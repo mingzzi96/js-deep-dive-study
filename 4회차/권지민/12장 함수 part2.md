@@ -22,4 +22,76 @@ console.log(factorial(5)) // 5! = 5 * 4 * 3 * 2 * 1 = 120
 
 ## 🎀 중첩 함수
 
+함수 내부에 정의된 함수를 중첩 함수 또는 내부 함수라 한다.
 
+```js
+function outer(){
+  var x = 1;
+
+  // 중첩 함수
+  function inner(){
+    var y = 2;
+    // 외부 함수의 변수를 참조할 수 있다.
+    console.log(x + y); // 3
+  }
+
+  inner();
+}
+
+outer();
+```
+
+1. 중첩 함수를 포함하는 함수는 외부 함수라 부른다.
+2. 중첩 함수는 외부 함수 내부에서만 호출 가능하다.
+
+## 🎀 콜백 함수
+
+```js
+function repeat(n, f) {
+  for(var i = 0; i < n; i++){
+    f(i); // i를 전달하면서 f를 호출
+  }
+}
+
+var logAll = function(i){
+  console.log(i);
+}
+
+repeat(5, logAll); // 0 1 2 3 4
+
+var logOdds = function (i) {
+  if (i % 2 ) console.log(i);
+}
+
+repaet(5, logOdds); // 1 3
+```
+
+함수의 매개변수를 통해 다른 함수의 내부로 전달되는 함수를 콜백 함수라고 하며,
+
+매개 변수를 통해 함수의 외부에서 콜백 함수를 전달받은 함수를 고차 함수라고 한다.
+
+콜백 함수는 고차 함수에 의해 호출되며 이때 고차 함수는 필요에 따라 콜백 함수에 인수를 전달 할 수 있다.
+
+### 📌 비동기 처리
+
+```js
+document.getElementById('myButton').addEventListener('click', function () {
+  console.log('button clicked!');
+});
+
+// 콜백 함수를 사용한 비동기 처리
+setTimeout(function () {
+  console.log('1초 경과');
+}, 1000);
+```
+### 📌 배열 고차 함수
+
+```js
+var res = [1, 2, 3].map(function (item) {
+  return item * 2;
+});
+
+console.log(res); // [2, 4, 6]
+```
+
+`map` 이외에 `filter`, `reduce` 고차 함수가 존재한다.
