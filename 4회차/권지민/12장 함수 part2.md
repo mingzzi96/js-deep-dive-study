@@ -95,3 +95,39 @@ console.log(res); // [2, 4, 6]
 ```
 
 `map` 이외에 `filter`, `reduce` 고차 함수가 존재한다.
+
+
+## 🎀 순수 함수와 비순수 함수
+
+### 📌 순수 함수
+
+```js
+var count = 0; // 현재 카운트
+
+function increase(n) {
+  return ++n;
+}
+// 순수 함수가 반환한 결과값을 변수에 재할당해서 상태를 변경
+count = increase(count);
+console.log(count); // 1
+```
+
+1. 순수 함수는 동일한 인수가 전달되면 언제나 동일한 값을 반환하는 함수다. (결국 상수와 마찬가지다.)
+2. 일반적으로 최소 하나 이상의 인수를 전달 받는다.
+3. 함수의 외부 상태를 변경하지 않는다.
+
+### 📌 비순수 함수
+
+```js
+var count = 0; // 현재 카운트 : increase 함수에 의해 변한다.
+
+function increase() {
+  return ++count; // 외부에 의존하며 외부 상태를 변경한다.
+}
+
+increase();
+console.log(count); // 1
+```
+
+1. 외부 상태에 의존하거나 외부 상태를 변경하는 함수다.
+2. 외부 상태를 변경하면 상태 변화를 추적하기 어려워진다.
