@@ -80,3 +80,102 @@ strict mode 스크립트와 non-strict mode 스크립트를 혼용하는 것은 
   foo();
 }());
 ```
+
+## 🎀 strict mode가 발생시키는 에러
+
+### 📌 암묵적 전역
+
+선언하지 않은 변수를 참조하면 ReferenceError가 발생한다.
+
+```js
+(function () {
+'use strict';
+
+x = 1;
+console.log(x); // / RefenceError: x is not defined
+```
+
+### 📌 변수, 함수, 매개변수의 삭제
+
+delete 연산자로 변수, 함수, 매개변수를 삭제하면 SyntaxError가 발생한다.
+
+```js
+(function () {
+'use strict';
+
+var x = 1;
+delete x; // SyntaxError: Delete of an unqualified identifier in strict mode
+function foo(a) {
+  delete a; // SyntaxError: Delete of an unqualified identifier in strict mode
+}
+delete foo; // SyntaxError: Delete of an unqualified identifier in strict mode
+}());
+```
+### 📌 매개변수 이름의 중복
+
+중복된 매개변수 이름을 사용하면 SyntaxError가 발생한다.
+
+```js
+(function () {
+'use strict';
+// SyntaxError: Duplicate parameter name not allowed in this context
+function foo(x, x){
+  return x + x;
+}
+console.log(foo(1,2));
+}());
+```
+### 📌 with 문의 사용
+
+with 문을 사용하면 SyntaxError가 발생한다.
+
+```js
+(function () {
+'use strict';
+
+// SyntaxError: Strict mode code may not include a with statment
+with({x:1}) {
+  console.log(x);
+}
+}());
+```
+
+## 🎀 strict mode 적용에 의한 변화
+
+### 📌 일반 함수의 this
+
+strict mode에서 함수를 일반 함수로서 호출하면 this에 `undefined`가 바인딩된다.
+
+생성자 함수가 아닌 일반 함수에서는 this를 사용할 필요가 없기 때문이다. 이때 에러는 발생하지 않는다.
+
+```js
+(function() {
+  'use strict';
+  
+  function foo(){
+    console.log(this); // undefined
+  }
+  foo();
+  
+  function Foo(){
+    console.log(this); // Foo
+  }
+  new Foo();
+}());
+```
+### 📌 arguments 객체
+
+strict mode 에서는 매개변수에 전달된 인수를 재할당하여 변경해도 `arguments` 객체에 반영되지 않는다.
+
+```js
+(function (a) {
+  'use strict';
+  // 매개 변수에 전달된 인수를 재할당하여 변경
+  a = 2;
+  
+  // 변수 값은 재할당이 된다.
+  console.log(a); // 2 
+  // 변경된 인수가 arguments 객체에 반영되지 않는다.
+  console.log(arguments); // { 0: 1, length: 1 }
+}(1));
+```
