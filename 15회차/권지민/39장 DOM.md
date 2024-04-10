@@ -409,10 +409,52 @@ attributes 프로퍼티를 통하지 않고 요소 노드에서 메서드로 바
 
 ## 🎀 HTMLCollection vs NodeList
 
+HTMLCollection은 노드 객체의 상태 변화를 실시간으로 반영하는 살아 있는 객체이다.
+
+여기서 '살아있다'라는 의미는 객체가 스스로 실시간 노드 객체의 상태 변경을 반영함을 의미한다.
+
+querySelectorAll 등의 메서드가 반환하는 NodeList 객체는 노드 객체의 상태 변화를 반영하지 않는 non-live DOM 컬렉션 객체입니다. NodeList는 앞의 HTMLCollection과 다르게 노드가 변경되도 그 상태를 반영하지 않습니다.
+
+하지만 childNodes는 live라서 실시간 반영된다.
+
+live 객체는 반복문을 순회하면서 노드가 변경되는 경우, 개발자의 의도와는 다른 결과가 발생할 수 있으므로 배열로 바꾸어 사용하는 것이 바람직합니다.(Array.from과 스프레드 연산자)
+
+<img width="968" alt="image" src="https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/d5d28553-0453-444c-bfa9-41aaebe92fe6">
+
 
 ## 🎀 innerHTML vs insertAdjacentHTML
 
+### innerHTML
+
+- 모든 노드의 자식을 제거하고 새롭게 할당하므로 비효율적
+- 삽입될 위치를 정할 수도 없다
+- 크로스 사이트 스크립팅 공격에 취약
+
+### insertAdjacentHTML
+
+- 기존 요소를 제거하지 않고 위치를 지정해 새로운 요소를 삽입
+- position은 총 4 가지 : 'beforebegin', 'afterbegin', 'beforeend', 'afterend'
+- innerHTML 프로퍼티보다 효율적이고 빠르다
+- 크로스 사이트 스크립팅 공격에 취약
 
 ## 🎀 HTML 어트리뷰트 vs. DOM 프로퍼티
+
+```html
+<div id="content" name="content-name" custom="custom"/><div> 
+```
+
+### HTML 어트리뷰트
+
+- HTML에 의해 정의된다.
+    
+    요소는 값이 "content"인 id 애트리뷰트, 값이 "content-name"인 name 애트리뷰트, 값이 "custom"인 custom 애트리뷰트를 가집니다.
+    
+- **애트리뷰트의 타입은 문자열(string)입니다.**
+
+### DOM 프로퍼티
+
+- id, name, class 등과 같은 프로퍼티는 점 표기법 및 대괄호 표기법으로 가져올 수 있지만, custom과 같은 사용자 정의 프로퍼티는 가져올 수 없습니다.
+- 기본 값이 존재하는 애트리뷰트는 값을 변경할 수 없습니다.
+- DOM 프로퍼티는 모든 데이터 타입을 가질 수 있습니다.
 
 
