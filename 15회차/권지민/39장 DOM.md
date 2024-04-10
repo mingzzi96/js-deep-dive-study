@@ -405,3 +405,14 @@ attributes 프로퍼티를 통하지 않고 요소 노드에서 메서드로 바
 </html>
 ```
 
+# 📚 면접 예상 질문
+
+## 🎀 HTMLCollection vs NodeList
+
+
+## 🎀 innerHTML vs insertAdjacentHTML
+
+
+## 🎀 HTML 어트리뷰트 vs. DOM 프로퍼티
+
+
