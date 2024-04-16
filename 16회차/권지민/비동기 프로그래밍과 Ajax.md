@@ -25,10 +25,10 @@
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/bd6c0a92-656c-4a1e-a17c-ff89b9d982a8)
 
 
-![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/fdd960eb-908a-40e8-945e-9a62ee56d0e1)
+![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/b0eb8ddd-8302-4f1e-94c9-bda996512831)
 
 
-![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/9b75d508-474f-4b70-9cd2-a10a7e7d9b09)
+![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/dbf875c2-e291-4f60-bab7-37464924e579)
 
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/94aec32d-af0d-4906-9602-201ac833c91a)
