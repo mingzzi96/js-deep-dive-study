@@ -13,6 +13,13 @@
 
 이렇게 자바스크립트의 동시성을 가능하게 해주는 것은 이벤트 루프가 존재하기 때문이다.
 
+### 📌 아래 코드 실행의 결과는?
+
+<img width="284" alt="image" src="https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/d1ce440a-b7b1-4d26-816e-e92c7c00abf3">
+
+
+### 📌 JS 비동기 처리는 이렇게 일어난다.
+
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/ce5cd44d-1683-4925-80e0-3765da9f62ec)
 
 - console.log start 가 call stack에 쌓인다.
@@ -69,7 +76,5 @@
 
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/3afaaf64-a831-45c8-9b9a-eaa9504cc2a7)
-
-
 
 - setTimeout 종료되었으니 사라짐
