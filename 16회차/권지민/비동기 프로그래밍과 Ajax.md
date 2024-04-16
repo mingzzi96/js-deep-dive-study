@@ -15,39 +15,61 @@
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/ce5cd44d-1683-4925-80e0-3765da9f62ec)
 
+- console.log start 가 call stack에 쌓인다.
+
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/3f5f6675-3a80-4e5c-949f-042ebe0aba00)
+
+- console.log start 가 실행이 된다.
 
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/822ae534-536b-42c6-9b0e-817cc157a807)
 
+- 실행된 함수는 call stack에서 제거된다.
+
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/bd6c0a92-656c-4a1e-a17c-ff89b9d982a8)
 
+- setTimeout call stack에 쌓인다.
 
-![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/b0eb8ddd-8302-4f1e-94c9-bda996512831)
+
+![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/3186aa3d-d0f7-482b-b2be-f2533855b0d4)
+
+- call stack에 담긴 setTimeout 함수가 실행되면 타이머가 web API에 등록되고,  call stack에서는 사라진다.
 
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/dbf875c2-e291-4f60-bab7-37464924e579)
 
+- 비어진 call stack에 console log end 들어옴
+
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/94aec32d-af0d-4906-9602-201ac833c91a)
+
+- console.log가 실행되고, call stack에서 사라진다.
 
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/7f979907-af17-4a7d-9c36-137a08793168)
 
+- timer가 끝나면 callback queue 안에 setTimeout 콜백함수 이동
+
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/256f5dbb-7b48-45d3-9559-981392d3ddf7)
+
+- call stack이 비워졌으니 setTimeout 함수를 올려 보낸다.
 
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/5ff85b9f-58f5-474b-a9db-fd841b2a25a1)
 
+- setTimeout안에 있는 console.log를 실행한다.
+
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/f35ad208-087e-41dc-87f4-a6bd3c3cb96c)
+
+- console.log timeout 실행되고 call stack에서 제거
 
 
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/3afaaf64-a831-45c8-9b9a-eaa9504cc2a7)
 
 
 
-
+- setTimeout 종료되었으니 사라짐
