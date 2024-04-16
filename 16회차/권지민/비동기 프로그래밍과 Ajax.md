@@ -78,3 +78,34 @@
 ![image](https://github.com/mingzzi96/js-deep-dive-study/assets/134386378/3afaaf64-a831-45c8-9b9a-eaa9504cc2a7)
 
 - setTimeout 종료되었으니 사라짐
+
+## 🎀 micro / macro task ([참고 링크](https://study-ihl.tistory.com/185))
+
+콜백 함수 대기하는 공간인 callback queue는 task queue라고도 부른다.
+
+그리고 이 task queue는 또 다시 micro / macro task 이렇게 두가지로 나뉘어져 있고 우선순위도 존재한다.
+
+```js
+setTimeout(() => {
+    console.log('A');
+}, 0);
+
+Promise.resolve()
+.then(() => {
+    console.log('B');
+})
+.then(function() {
+    console.log('C');
+});
+
+console.log('D');
+```
+
+위 코드의 예상 결과는 D > A > B > C 이다.
+
+하지만 태스크 큐 안에서도 우선순위가 존재하기 때문에 D > B > C > A 순으로 결과가 출력된다.
+
+
+- `Macro Task Queue`: setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, UI Rendering
+- `Micro Task Queue`: process.nextTick, Promise, Object.observe, MutationObserver
+
