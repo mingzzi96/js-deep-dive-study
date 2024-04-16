@@ -109,3 +109,6 @@ console.log('D');
 - `Macro Task Queue`: setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, UI Rendering
 - `Micro Task Queue`: process.nextTick, Promise, Object.observe, MutationObserver
 
+1. Macro Task Queue에서 가장 오래된 작업 하나를 실행한다.
+2. Micro Task Queue에 있는 모든 작업을 실행한다.
+3. 1단계로 이동한다.
